@@ -1,0 +1,89 @@
+{
+    "selectedCaseModel": {
+        "_comment" : "Set this value to 1 ",
+        "caseModelID": 1,
+        "_comment" : "Name of the case data app deployed ",
+        "appName": "Cases.ServiceRequest-1",
+        "_comment" : "Major version of the case data app deployed ",
+        "majorVersion": 1
+    },
+    "analyticsConfig": {
+        "_comment" : "Table name used by your main marking in your spotfire template. Marking used to callback main UI",
+        "tableName": "ec_case_status",
+        "_comment" : "DXP path in your spotfire server.",
+        "analysisPath": "/CaseManager/TEMPLATES/CaseManager_Analytics_V1.0",
+        "_comment" : "Name of the marking use to callback the main UI",
+        "markingName": "Case",
+        "_comment" : "Column name that contains case_id. Used to switched to case in main UI on marking",
+        "caseIdField":"case_id",
+        "_comment" : "Columns name you want to populate in your marking to be passed to main UI.",
+        "columnNames": [
+            "case_ref",
+            "case_id",
+            "case_type"
+        ],
+        "_comment" : "Main Case Type. deprecated/not used",
+        "casetype": "investigation",
+        "_comment" : "Spotfire webplayer server url",
+        "spotfireServer": "http://localhost:28080/spotfire/wp",
+        "_comment" : "Leave this as -1 if your table name is 'ec_case_status' else 'case_data_table' set it to the major version number of your case model",
+        "bdsVersion": "-1"
+    },
+    "caseDisplayConfig": {
+        "_comment" : "This value is to configure the use of custom templates in your 'case-templates' folder. Values : true/false",
+        "useCustomTemplates": "false"
+    },
+    "businessServiceConfig": {
+        "_comment" : "Names of the business services categories to show on quick launcher (only use top level category names)",
+        "caseStartCategories": [
+            "Create"
+        ]
+    },
+    "colorTheme": {
+        "_comment" : "Set this value to the theme you want to appear. Values : default/metal/redAndGrey",
+        "selected" : "default"
+    },
+    "layout" :  {
+        "_comment" : "Set this value to where you want the menu to be. Values : side/top",
+        "menuSelected" : "top"
+    },"navigation" : {
+    "_comment" : "Set this to configure the behavior on logout Values : home(you go back to home page on login after a logout)/route(you go back, after login, to the page you were in when pressing logout)",
+    "logoutRedirection" : "home"
+},
+    "role" : {
+        "_comment" : "Set this value in you want to use roles or not. Values : true/false",
+        "useRoles" : "false"
+    },
+    "homePage" : {
+        "_comment" : "Home Page Graphs configuration. When using filter you can use TIMEDAYFUNCTION(1) it will create a range date filter from 1 day ago till now",
+        "graph1" : {
+            "_comment" : "Configuration of the graph 1",
+            "filter" : "(currentUser(completingUserId)) AND (isSet(completionTime)) AND (currentDay(completionTime))",
+            "area" : "WORK_ITEMS",
+            "attribute" : "activityName",
+            "title" : "Activities completed today",
+            "sectionText" : "Task"
+        },
+        "graph2" : {
+            "_comment" : "Configuration of the graph 2",
+            "filter" : "(caseClass='Service.Cases.Complaint') AND (currentDay(createdTime))",
+            "area" : "CASE_OBJECTS",
+            "attribute" : "userId",
+            "title" : "Complaints created today",
+            "sectionText" : "Today's Complaints"
+        },
+        "graph3" : {
+            "_comment" : "Configuration of the graph 3",
+            "filter" : "(caseClass='Service.Cases.Complaint') AND (createdTime = TIMEDAYFUNCTION(1))",
+            "area" : "CASE_OBJECTS",
+            "attribute" : "caseState",
+            "title" : "Recent Complaints",
+            "sectionText" : "Complaints"
+        }
+    },
+    "nimbusConfig": {
+        "_comment": "configuration of nimbus page",
+        "baseurl": "https://xyz.nimbus-cloud.com/how2/CtrlWebIsapi.dll/widgets",
+        "widgeturl": "diagram?map=0%3AFBBDF69E91C441FDAF3504966B52D8EC&dgm=FFA07037D8924A489BF3B54D35109185"
+    }
+}

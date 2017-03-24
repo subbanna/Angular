@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="gwt:property" content="tibco_channel=desktop"/>
+    <title>Case Manager App</title>
+    <!-- ***************DO NOT MODIFY*****************  : BEGIN -->
+    <!-- 				Core dependencies 						-->
+    <script type="text/javascript" src="/apps/app-cdn/tcf/tcf.nocache.js"></script>
+    <script type="text/javascript" src="/apps/app-cdn/jquery/jquery-2.1.3.js"></script>
+    <script src="/apps/app-cdn/angular/1.4.8/angular.min.js"></script>
+    <script src="/apps/app-cdn/angular-ui-grid/ui-grid.min.js"></script>
+    <!-- ***************DO NOT MODIFY*****************  : BEGIN -->
+    <!--======================================================= -->
+    <!-- 			Custom modifications start 					-->
+    <!-- This is the controller you that contains your logic -->
+
+
+    <!-- fast click (for mobile devices)-->
+    <script src="js/fastclick.js"></script>
+
+    <script>
+
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+
+    <!-- MAIN APP  -->
+    <script src="js/CaseManager.js"></script>
+    <script src="js/services/BPMRolesService.js"></script>
+
+
+
+
+
+
+    <!-- START spotfire analytics dependencies -->
+    <script type="text/javascript" src="components/generic-webplayer/webplayerapi76.js"></script>
+    <script type="text/javascript" src="components/generic-webplayer/generic-webplayer-directive76.js"></script>
+    <!-- END spotfire analytics dependencies -->
+
+
+
+
+
+
+    <!-- START case search dependencies -->
+
+    <!-- search box dependencies -->
+    <script src="dependencies/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="dependencies/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dependencies/angular-advanced-searchbox/angular-advanced-searchbox.min.css">
+    <script src="dependencies/angular-advanced-searchbox/angular-advanced-searchbox.js"></script>
+
+
+    <!-- src-display sources-->
+    <script src="components/src-display/src-display.js"></script>
+    <script src="components/src-display/src-display-directive.js"></script>
+
+    <!-- search-box-display sources-->
+    <script src="components/search-box-display/search-box-display.js"></script>
+    <script src="components/search-box-display/search-box-display-directive.js"></script>
+
+    <!-- objectAPI services -->
+
+    <script src="js/SrcAppBPMServices.js"></script>
+
+    <!-- END case search dependencies -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/apps/app-cdn/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="/apps/app-cdn/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- spinner -->
+    <script type="text/javascript" src="dependencies/spin/spin.min.js"></script>
+
+    <!-- moment js -->
+    <script type="text/javascript" src="dependencies/moment/moment.min.js"></script>
+
+    <!-- pagination util directive-->
+    <script type="text/javascript"
+            src="dependencies/angular-utils-pagination/dirPagination.js"></script>
+
+    <!-- Microservice source-->
+    <script src="components/micro-service/micro-service.js"></script>
+    <script src="components/micro-service/micro-service-directive.js"></script>
+
+
+
+    <!--User Welcome Card-->
+    <script src="components/user-welcome-card/user-welcome-card.js"></script>
+    <script src="components/user-welcome-card/user-welcome-card-directive.js"></script>
+
+
+
+    <!-- table-display sources -->
+    <script src="components/table-display/table-display.js"></script>
+    <script src="components/table-display/table-display-directive.js"></script>
+
+
+    <!-- case-display sources -->
+    <script src="components/case-display/case-display.js"></script>
+    <script src="components/case-display/case-display-directive.js"></script>
+
+    <!-- linked-case-display sources -->
+    <script src="components/linked-case-display/linked-case-display.js"></script>
+    <script src="components/linked-case-display/linked-case-display-directive.js"></script>
+
+    <!-- case-class-display sources -->
+    <script src="components/case-class-display/case-class-display.js"></script>
+    <script src="components/case-class-display/case-class-display-directive.js"></script>
+
+    <!-- case-document-display sources -->
+    <script src="components/case-document-display/docsearchbox.js"></script>
+    <script src="components/case-document-display/case-document-display.js"></script>
+    <script src="components/case-document-display/case-document-display-directive.js"></script>
+
+    <!-- docs-view-display sources-->
+    <script src="components/docs-view-display/docs-view-display.js"></script>
+    <script src="components/docs-view-display/docs-view-display-directive.js"></script>
+
+    <!-- generic-comment-display sources-->
+    <script src="components/generic-comment-display/generic-comment-display.js"></script>
+    <script src="components/generic-comment-display/generic-comment-display-directive.js"></script>
+
+    <!-- case-document-upload sources -->
+    <script src="components/case-document-upload/case-document-upload.js"></script>
+    <script src="components/case-document-upload/case-document-upload-directive.js"></script>
+
+    <!-- case-comment-display sources -->
+    <script src="components/case-comment-display/case-comment-display.js"></script>
+    <script src="components/case-comment-display/case-comment-display-directive.js"></script>
+
+    <!-- case-url-display sources -->
+    <script src="components/case-url-display/case-url-display.js"></script>
+    <script src="components/case-url-display/case-url-display-directive.js"></script>
+
+    <!-- case-task-display sources -->
+    <script src="components/case-task-display/case-task-display.js"></script>
+    <script src="components/case-task-display/case-task-display-directive.js"></script>
+
+    <!-- case-workitem-display sources -->
+    <script src="components/case-workitem-display/case-workitem-display.js"></script>
+    <script src="components/case-workitem-display/case-workitem-display-directive.js"></script>
+
+    <!-- case-context-menu sources -->
+    <script src="components/case-context-menu/case-context-menu.js"></script>
+    <script src="components/case-context-menu/case-context-menu-directive.js"></script>
+
+    <!-- case-audit-display sources -->
+    <script src="components/case-audit-display/case-audit-display.js"></script>
+    <script src="components/case-audit-display/case-audit-display-directive.js"></script>
+
+    <!-- case action list -->
+    <script src="js/PayloadService.js"></script>
+    <script src="js/ConfigService.js"></script>
+    <script src="components/case-action-list/case-action-list.js"></script>
+    <script src="components/case-action-list/case-action-list-directive.js"></script>
+
+
+    <!-- case milestone directive -->
+    <script src="components/case-milestone/case-milestone.js"></script>
+    <script src="components/case-milestone/case-milestone-directive.js"></script>
+
+    <!-- calendar -->
+	<!--
+    <script src="components/calendar-display/calendar-display.js"></script>
+    <script src="components/calendar-display/calendar-display-directive.js"></script>
+    <link rel="stylesheet" href="dependencies/notifications/angular-ui-notification.min.css">
+    <script src="dependencies/notifications/angular-ui-notification.js"></script>
+
+    <link rel="stylesheet" href="dependencies/fullcalendar/dist/fullcalendar.css"/>
+    <script type="text/javascript" src="dependencies/angular-ui-calendar/src/calendar.js"></script>
+    <script type="text/javascript" src="dependencies/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="dependencies/fullcalendar/dist/gcal.js"></script>
+-->
+
+    <!-- donut-display sources-->
+    <script src="components/donut-display/donut-display.js"></script>
+    <script src="components/donut-display/donut-display-directive.js"></script>
+
+    <!-- highcharts
+    <script src="dependencies/highcharts/highcharts.js"></script>
+    <script src="dependencies/highcharts/highcharts-3d.js"></script>
+    <script src="dependencies/highcharts/exporting.js"></script>-->
+
+    <!-- highcharts - product -->
+    <script src="../app-cdn/highcharts/4.2.3/highcharts.js"></script>
+    <script src="../app-cdn/highcharts/4.2.3/highcharts-3d.js"></script>
+    <script src="../app-cdn/highcharts/4.2.3/modules/exporting.js"></script>
+
+    <!-- camelcase to human -->
+    <script src="dependencies/camelcase/camelcase-browser.js"></script>
+
+    <!-- assignment-display sources-->
+    <script src="components/assignment-display/assignment-display.js"></script>
+    <script src="components/assignment-display/assignment-display-directive.js"></script>
+
+    <!-- ObjectAPI services-->
+    <script src="js/services/CaseDisplayBPMServices.js"></script>
+    <script src="js/services/DocsViewAppBPMServices.js"></script>
+
+    <!-- nimbus -->
+    <script src="components/nimbus/nimbus-display-directive.js"></script>
+
+    <!-- org browser -->
+    <script src="components/org-browser/orgbrowser-display-directive.js"></script>
+
+    <!-- START case display dependencies -->
+
+    <!-- END case display dependencies -->
+
+    <!-- START UI Sections -->
+
+    <!-- home-section sources-->
+    <script src="components/home-section/home-section.js"></script>
+    <script src="components/home-section/home-section-directive.js"></script>
+
+    <!-- case-section sources-->
+    <script src="components/case-section/case-section.js"></script>
+    <script src="components/case-section/case-section-directive.js"></script>
+
+    <!-- analytics-section sources-->
+    <script src="components/analytics-section/analytics-section.js"></script>
+    <script src="components/analytics-section/analytics-section-directive.js"></script>
+
+    <!-- tasks-section sources-->
+    <script src="components/tasks-section/tasks-section.js"></script>
+    <script src="components/tasks-section/tasks-section-directive.js"></script>
+
+    <!-- END UI Sections -->
+
+    <!-- business-service-menu sources-->
+    <script src="components/business-service-menu/business-service-menu.js"></script>
+    <script src="components/business-service-menu/business-service-menu-directive.js"></script>
+
+
+    <!-- PAGES COMPONENTS-->
+    <script src="components/page-analytics/page-analytics.js"></script>
+    <script src="components/page-business-service/page-business-service.js"></script>
+    <script src="components/page-case-display/page-case-display.js"></script>
+    <script src="components/page-case-search/page-case-search.js"></script>
+    <script src="components/page-home/page-home.js"></script>
+    <script src="components/page-nimbus/page-nimbus.js"></script>
+    <script src="components/page-org-model/page-org-model.js"></script>
+    <script src="components/page-rules/page-rules.js"></script>
+    <script src="components/page-work-list/page-work-list.js"></script>
+
+
+
+
+</head>
+
+
+<!-- The actual page HTML -->
+
+<body layout="column" ng-controller="CaseManagerCtrl" ng-cloak class="appBody case-manager"
+      md-theme="{{ dynamicColorTheme }}"
+      md-theme-watch="true">
+
+<style>
+
+    .appName {
+        width: 100%;
+    }
+
+    .appHeader {
+        background-color: black;
+    }
+
+    .appHeader .sideBar {
+        opacity: 0;
+    }
+
+    .appHeader .header-title {
+        width: 100%;
+    }
+
+    .appHeader .header-title .logoutButton {
+        float: right;
+        font-size: 14px;
+    }
+
+    .icon-text {
+        text-align: center;
+    }
+
+    .tibco-logo {
+        margin-left: 10px;
+    }
+
+    .header-text {
+        margin-left: 10px;
+    }
+
+    .app-header > span {
+        color: white;
+    }
+
+    md-input-container, md-switch {
+        background: transparent !important;
+    }
+
+    .case-manager * :not(.glyphicon) {
+        font-family: 'roboto';
+    }
+
+    .titleUserName {
+        color: white !important;
+        margin-right: 10px;
+    }
+
+    .md-iconFix {
+        margin-top: -3px;
+    }
+
+
+</style>
+
+
+<!--------------------------------------------------HEADER------------------------------------------------------------------------>
+
+<md-toolbar class="appHeader md-primary md-hue-2" layout="row" layout-align="space-between center">
+
+    <div layout="row" flex layout-align="start center" flex="33">
+        <div>
+            <!--------------------------------------------------LOGO------------------------------------------------------------------------>
+            <md-icon md-svg-src="svg/tibco_logo_icon.svg" class="tibco-logo"></md-icon>
+
+            <!--------------------------------------------------TITLE------------------------------------------------------------------------>
+            <span class="header-text" translate="{{'tcf.CM.cm_title'}}" translate-default="Case Manager">Case Manager</span>
+        </div>
+    </div>
+    <!--------------------------------------------------MIDDLE------------------------------------------------------------------------>
+    <div layout="row" flex layout-align="center center" flex="33">
+        <!--------------------------------------------------Start Service------------------------------------------------------------------------>
+
+        <div layout="row" layout-align="start center" ng-if="dynamicMenuLayout=='top'">
+            <md-button ng-repeat="monoGram in menuPages"
+                       class="md-fab md-mini md-primary" ng-class="{'md-accent':monoGram.id==selectedSideBarAction}"
+                       aria-label="Setting" ng-click="sideBarSelect(monoGram.id, monoGram.page)">
+                <md-tooltip>{{'tcf.CM.cm_menu_' + monoGram.labelKey| translate}}</md-tooltip>
+                <md-icon class="md-48 md-iconFix" md-svg-src="{{monoGram.icon}}"
+                         style="color: white;"></md-icon>
+            </md-button>
+        </div>
+
+        <div layout="row" layout-align="start center">
+            <md-button class="md-fab md-mini md-primary"
+                       aria-label="Setting" ng-click="backToLastCase()">
+                <md-tooltip>{{'tcf.CM.cm_backToCase' | translate}}</md-tooltip>
+                <md-icon class="md-48 md-iconFix" md-svg-src="svg/return.svg"
+                         style="color: white;"></md-icon>
+            </md-button>
+        </div>
+
+        <business-service-menu-directive show-action="sideBarSelect('no','pageBusinessService')"
+                                         form-div="businessServiceFormDiv"
+                                         categories="businessServiceConfig.caseStartCategories" template-path="components/business-service-menu/business-service-menu-fab.html"></business-service-menu-directive>
+
+
+
+
+    </div>
+
+
+    <!--------------------------------------------------LEFT------------------------------------------------------------------------>
+    <div layout="row" flex layout-align="end center" flex="33">
+
+
+        <!--------------------------------------------------Language Picker------------------------------------------------------------------------>
+        <!--TODO check style-->
+        <div style="margin-top:-35px; width:10px;">
+            <bpm-language-change
+                    template-path="components/bpm_language_change/bpm_language_change.html"></bpm-language-change>
+        </div>
+
+
+
+        <!--------------------------------------------------User Info------------------------------------------------------------------------>
+        <div layout="row" layout-align="center center">
+
+            <div layout="row" layout-align="end center" class="titleUserName">
+                {{profile.userName}}
+            </div>
+            <div><img style="height: 40px; border-radius: 50%"
+                      ng-src="{{profile.userNameImg}}"></div>
+        </div>
+
+        <!--------------------------------------------------LOGOUT------------------------------------------------------------------------>
+        <md-button class="md-fab md-mini md-primary" aria-label="Setting" ng-click="logout();">
+            <md-tooltip>{{'tcf.CM.cm_logout'| translate}}</md-tooltip>
+            <md-icon class="md-48 md-iconFix" md-svg-src="svg/logout.svg"
+                     style="color: white;"></md-icon>
+        </md-button>
+
+        <!--------------------------------------------------Change Theme------------------------------------------------------------------------>
+        <md-button class="md-fab md-mini md-primary  md-hue-3" aria-label="Setting" ng-click="changeTheme();">
+            <md-tooltip>{{'tcf.CM.cm_changeTheme'| translate}}</md-tooltip>
+            <md-icon class="md-24 md-iconFix" md-svg-src="svg/setting.svg"
+                     style="color: white;"></md-icon>
+        </md-button>
+
+        <!--------------------------------------------------Change Theme------------------------------------------------------------------------>
+        <md-button class="md-fab md-mini md-primary  md-hue-3" aria-label="Setting" ng-click="changeMenuLayout();">
+            <md-tooltip>{{'tcf.CM.cm_changeLayout'| translate}}</md-tooltip>
+            <md-icon class="md-24 md-iconFix" md-svg-src="svg/layout.svg"
+                     style="color: white;"></md-icon>
+        </md-button>
+    </div>
+
+</md-toolbar>
+
+
+<!--------------------------------------------------FOOTER------------------------------------------------------------------------>
+
+<md-toolbar class="appFooter md-primary md-hue-2" layout="row" layout-align="center center">
+    All Rights Reserved | TIBCO SOFTWARE | 2016
+</md-toolbar>
+
+
+<style>
+    .sideBarSection.selected {
+        background-color: #20272E;
+        border: #20272E !important;
+    }
+
+    .sideBarSection.selected.sideBarSection:hover {
+        cursor: pointer;
+        background: #E8E8E8;
+        background-color: #3399db;
+        border: solid 1px #3671ad;
+    }
+
+    .outerSideBar {
+        background-color: #2F3F4D;
+        width: 84px;
+    }
+
+    .sideBar {
+        margin-top: 5px;
+        max-width: 84px;
+        min-width: 84px;
+        width: 84px;
+    }
+
+    md-sidenav.md-locked-open.outerSideBar {
+        top: 45px;
+        max-width: 84px;
+        min-width: 84px;
+        width: 84px;
+    }
+
+</style>
+
+
+<!--------------------------------------------------CONTENT MIDDLE------------------------------------------------------------------------>
+
+
+<div flex layout="row" ng-style="{'overflow':selectedSideBarAction=='O' ? 'hidden':'auto'}">
+
+    <!--------------------------------------------------SIDE NAV when layout menu is set to side------------------------------------------------------------------------>
+    <md-sidenav md-is-open="true" md-is-locked-open="true" class="outerSideBar" ng-show="dynamicMenuLayout=='side'">
+        <div layout="column" layout-align="start center" class="sideBar">
+            <div ng-repeat="monoGram in menuPages"
+                 class="sideBarSection" layout="column" layout-align="center center"
+                 ng-click="sideBarSelect(monoGram.id, monoGram.page)"
+                 ng-class="{'selected':monoGram.id==selectedSideBarAction}">
+                <md-icon md-svg-src="{{monoGram.icon}}" class="sideBar-icon"></md-icon>
+                <!--div-- class="icon-text">{{'tcf.CM.cm_menu_' + monoGram.labelKey| translate}}</div-->
+                <div class="icon-text" translate="{{'tcf.CM.cm_menu_' + monoGram.labelKey}}"
+                     translate-default={{monoGram.labelKey}}>{{monoGram.labelKey}}
+                </div>
+
+            </div>
+        </div>
+    </md-sidenav>
+
+
+    <!--------------------------------------------------MAIN CONTENT------------------------------------------------------------------------>
+    <!-- TODO: Jez Remember what this ng-class stuff was!-->
+    <div flex class="mainContent" layout="column" ng-style="{'overflow':selectedSideBarAction=='O' ? 'hidden':'auto'}"
+         ng-class="{'background-white':mainPage,'background-white':!mainPage || selectedSideBarAction!='C','no-padding-left':selectedSideBarAction=='B'}">
+
+        <div flex ng-viewport ng-style="{'overflow':selectedSideBarAction=='O' ? 'hidden':'auto'}"></div>
+
+
+    </div>
+</div>
+
+
+<!--------------------------------------------------LOADING SPINNER------------------------------------------------------------------------>
+<div class="loading-spinner" id="loadingSpinner"></div>
+
+
+</body>
+</html>
+

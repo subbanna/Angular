@@ -1,0 +1,5 @@
+{
+  "indexPage": "CaseManager/index.html",
+  "configPage": "CaseManager/CaseManager.config.json",
+  "library": false
+}
